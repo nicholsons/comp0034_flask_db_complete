@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Search results{% endblock %}
+{% block content %}
+{% if results|length %}
+{# Variable is not empty #}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Student name</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody> {% for result in results %}
+    <tr>
+        <td>{{ result.name }}</td>
+        <td>{{ result.email }}</td>
+    </tr>
+     {% endfor %}
+    </tbody>
+</table>
+{% else %}
+{# Variable is empty #}
+<p>Sorry, no students found</p>
+{% endif %}
+{% endblock %}

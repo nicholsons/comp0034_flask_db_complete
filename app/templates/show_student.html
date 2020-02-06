@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Student details{% endblock %}
+{% block content %}
+<h1>Account details for {{ user.name }}</h1>
+<p>Email: {{ user.email }}</p>
+<p>Student ID number: {{ user.student_ref }}</p>
+{% endblock %}

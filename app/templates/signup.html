@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Signup {% endblock %}
+{% block content %}
+{# Display the form validation errors #}
+{% if form.errors %}
+    <ul class="alert-warning list-unstyled">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+{# Display the form, turn off HTML validation #}
+{# The (class_="") after a form field is used to apply css style to the element, in this case a bootstrap style #}
+<form method="post" novalidate>
+    {{ form.csrf_token }}
+    {{ form.name.label }}{{ form.name(class="form-control") }}
+    {{ form.student_ref.label }}{{ form.student_ref(class="form-control") }}
+    {{ form.email.label }}{{ form.email(class="form-control") }}
+    {{ form.password.label }}{{ form.password(class="form-control") }}
+    {{ form.confirm.label }}{{ form.confirm(class="form-control") }}
+    <br>{{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

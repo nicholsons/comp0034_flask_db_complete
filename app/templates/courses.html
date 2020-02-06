@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+{% if courses|length %}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Teacher</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+    <tr>
+        <td>{{ course.course_code }}</td>
+        <td>{{ course.name }}</td>
+        <td>{{ course.teacher_id }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Sorry, no courses are available at this time</p>
+{% endif %}
+{% endblock %}
